@@ -2,6 +2,12 @@
 
 # XorHelper provides an encode method to xor a file with a key
 module XorHelper
+
+  # XOR encodes/decodes a document with a key
+  # Parameters:
+  #   doc: string
+  #   key: stirng
+  # Returns: string
   def self.encode(doc, key)
     # Enter all your code into this method (only!)
 
