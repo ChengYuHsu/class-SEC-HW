@@ -1,4 +1,4 @@
-# Author: Soumya Ray (soumya.ray@gmail.com) <-- change this to your teammates!
+# Author: Cheng-Yu Hsu (crazyming411@gmail.com)
 
 # XorHelper provides an encode method to xor a file with a key
 module XorHelper
@@ -10,6 +10,8 @@ module XorHelper
   # Returns: string
   def self.encode(doc, key)
     # Enter all your code into this method (only!)
-
+	return doc.chars.each_with_index.map{ |char, index|
+    			(char.ord ^ key[index % key.length].ord).chr
+    		}.join
   end
 end
