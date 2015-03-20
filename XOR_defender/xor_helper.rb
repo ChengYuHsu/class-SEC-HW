@@ -12,9 +12,12 @@ module XorHelper
   #   key: string
   # Returns: string
   def self.encode(doc, key)
-    return doc.chars.each_with_index.map{ |char, index|
-              # encrypt with the round-robin method!
-              (char.ord ^ key[index % key.length].ord).chr
-    		    }.join
+    # [arr].cycle 
+    # => will repeat the array
+    # => Enumerator:cycle
+    # => http://ruby-doc.org/core-2.2.1/Enumerable.html#method-i-cycle 
+    return doc.chars.zip(key.chars.cycle).map { |row|  
+              (row[0].ord ^ row[1].ord).chr
+            }.join
   end
 end
